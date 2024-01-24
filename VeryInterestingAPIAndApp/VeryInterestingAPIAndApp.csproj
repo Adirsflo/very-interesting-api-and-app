@@ -11,4 +11,19 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Images\user\1.png" />
+    <None Include="wwwroot\Images\user\10.png" />
+    <None Include="wwwroot\Images\user\11.png" />
+    <None Include="wwwroot\Images\user\12.png" />
+    <None Include="wwwroot\Images\user\2.png" />
+    <None Include="wwwroot\Images\user\3.png" />
+    <None Include="wwwroot\Images\user\4.png" />
+    <None Include="wwwroot\Images\user\5.png" />
+    <None Include="wwwroot\Images\user\6.png" />
+    <None Include="wwwroot\Images\user\7.png" />
+    <None Include="wwwroot\Images\user\8.png" />
+    <None Include="wwwroot\Images\user\9.png" />
+  </ItemGroup>
+
 </Project>

@@ -8,7 +8,6 @@ namespace VeryInterestingAPIAndApp.Controllers
 	public class UsersController : Controller
 	{
 		// All users
-
 		public static List<User> Users { get; set; } = new()
 		{
 			new User
@@ -16,6 +15,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 1,
 				FirstName = "Harry",
 				LastName = "Potter",
+				Img = "https://localhost:7251/Images/user/1.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1980, 7, 31),
 				BloodStatus = "Half-Blood",
@@ -28,6 +28,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 2,
 				FirstName = "Hermione",
 				LastName = "Granger",
+				Img = "https://localhost:7251/Images/user/2.png",
 				Gender = "Female",
 				BirthDate = new DateTime(1979, 9, 19),
 				BloodStatus = "Muggle-born",
@@ -40,6 +41,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 3,
 				FirstName = "Ron",
 				LastName = "Weasley",
+				Img = "https://localhost:7251/Images/user/3.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1980, 3, 1),
 				BloodStatus = "Pure-Blood",
@@ -52,6 +54,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 4,
 				FirstName = "Albus",
 				LastName = "Dumbledore",
+				Img = "https://localhost:7251/Images/user/4.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1881, 8, 1),
 				BloodStatus = "Half-Blood",
@@ -64,6 +67,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 5,
 				FirstName = "Lord",
 				LastName = "Voldemort",
+				Img = "https://localhost:7251/Images/user/5.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1926, 12, 31),
 				BloodStatus = "Half-Blood",
@@ -76,6 +80,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 6,
 				FirstName = "Severus",
 				LastName = "Snape",
+				Img = "https://localhost:7251/Images/user/6.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1960, 1, 9),
 				BloodStatus = "Half-Blood",
@@ -88,6 +93,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 7,
 				FirstName = "Luna",
 				LastName = "Lovegood",
+				Img = "https://localhost:7251/Images/user/7.png",
 				Gender = "Female",
 				BirthDate = new DateTime(1981, 2, 13),
 				BloodStatus = "Pure-Blood",
@@ -100,6 +106,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 8,
 				FirstName = "Neville",
 				LastName = "Longbottom",
+				Img = "https://localhost:7251/Images/user/8.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1980, 7, 30),
 				BloodStatus = "Pure-Blood",
@@ -112,6 +119,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 9,
 				FirstName = "Minerva",
 				LastName = "McGonagall",
+				Img = "https://localhost:7251/Images/user/9.png",
 				Gender = "Female",
 				BirthDate = new DateTime(1935, 10, 4),
 				BloodStatus = "Half-Blood",
@@ -124,6 +132,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 10,
 				FirstName = "Sirius",
 				LastName = "Black",
+				Img = "https://localhost:7251/Images/user/10.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1959, 11, 3),
 				BloodStatus = "Pure-Blood",
@@ -136,6 +145,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 11,
 				FirstName = "Bellatrix",
 				LastName = "Lestrange",
+				Img = "https://localhost:7251/Images/user/11.png",
 				Gender = "Female",
 				BirthDate = new DateTime(1951, 2, 12),
 				BloodStatus = "Pure-Blood",
@@ -148,6 +158,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 12,
 				FirstName = "Rubeus",
 				LastName = "Hagrid",
+				Img = "https://localhost:7251/Images/user/12.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1928, 12, 6),
 				BloodStatus = "Half-Giant",

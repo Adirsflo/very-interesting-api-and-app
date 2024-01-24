@@ -7,6 +7,7 @@
 		public string? LastName { get; set; }
 
 		public string? FullName { get { return $"{FirstName} {LastName}".Trim(); } }
+		public string? Img { get; set; }
 		public string? Gender { get; set; }
 		public DateTime BirthDate { get; set; }
 		public string? BloodStatus { get; set; }

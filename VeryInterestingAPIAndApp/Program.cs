@@ -28,6 +28,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAll");
 
+// Keeps the image-files static
+//app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
