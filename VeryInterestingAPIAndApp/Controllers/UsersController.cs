@@ -7,6 +7,8 @@ namespace VeryInterestingAPIAndApp.Controllers
 	[Route("v1/[controller]")]
 	public class UsersController : Controller
 	{
+		// All users
+
 		public static List<User> Users { get; set; } = new()
 		{
 			new User
@@ -155,6 +157,8 @@ namespace VeryInterestingAPIAndApp.Controllers
 		},
 };
 
+		// Gets all users
+
 		[HttpGet]
 		public ActionResult<List<User>> Get()
 		{
@@ -165,6 +169,8 @@ namespace VeryInterestingAPIAndApp.Controllers
 
 			return NotFound("Could not find users");
 		}
+
+		// Searches for User ID
 
 		[HttpGet]
 		[Route("{id}")]
@@ -180,6 +186,8 @@ namespace VeryInterestingAPIAndApp.Controllers
 			return Ok(user);
 		}
 
+		// Adds user to API
+
 		[HttpPost]
 		public ActionResult Post(User user)
 		{
@@ -192,81 +200,49 @@ namespace VeryInterestingAPIAndApp.Controllers
 			return Ok("User added!");
 		}
 
+		// Updates user in API
 
+		[HttpPut]
+		[Route("{id}")]
+		public ActionResult Put(int id, User updatedUser)
+		{
+			if (updatedUser == null || string.IsNullOrEmpty(updatedUser.FullName))
+			{
+				return BadRequest("Could not update user. Check your JSON and try again!");
+			}
 
-		//// GET: UsersController
-		//public ActionResult Index()
-		//{
-		//	return View();
-		//}
+			User? selectedUser = Users.FirstOrDefault(u => u.Id == id);
 
-		//// GET: UsersController/Details/5
-		//public ActionResult Details(int id)
-		//{
-		//	return View();
-		//}
+			if (selectedUser == null)
+			{
+				return NotFound("Could not find user with that ID");
+			}
 
-		//// GET: UsersController/Create
-		//public ActionResult Create()
-		//{
-		//	return View();
-		//}
+			// Updates the selected user
+			selectedUser.FirstName = updatedUser.FirstName;
+			selectedUser.LastName = updatedUser.LastName;
+			selectedUser.Gender = updatedUser.Gender;
+			selectedUser.BirthDate = updatedUser.BirthDate;
+			selectedUser.BloodStatus = updatedUser.BloodStatus;
+			selectedUser.House = updatedUser.House;
+			selectedUser.Profession = updatedUser.Profession;
+			selectedUser.Affiliations = updatedUser.Affiliations;
 
-		//// POST: UsersController/Create
-		//[HttpPost]
-		//[ValidateAntiForgeryToken]
-		//public ActionResult Create(IFormCollection collection)
-		//{
-		//	try
-		//	{
-		//		return RedirectToAction(nameof(Index));
-		//	}
-		//	catch
-		//	{
-		//		return View();
-		//	}
-		//}
+			return Ok("User updated!");
+		}
 
-		//// GET: UsersController/Edit/5
-		//public ActionResult Edit(int id)
-		//{
-		//	return View();
-		//}
+		[HttpDelete]
+		[Route("{id}")]
+		public ActionResult Delete(int id)
+		{
+			User? userToRemove = Users.FirstOrDefault(u => u.Id == id);
+			if (userToRemove == null)
+			{
+				return NotFound("Could not find user with that ID");
+			}
 
-		//// POST: UsersController/Edit/5
-		//[HttpPost]
-		//[ValidateAntiForgeryToken]
-		//public ActionResult Edit(int id, IFormCollection collection)
-		//{
-		//	try
-		//	{
-		//		return RedirectToAction(nameof(Index));
-		//	}
-		//	catch
-		//	{
-		//		return View();
-		//	}
-		//}
-
-		//// GET: UsersController/Delete/5
-		//public ActionResult Delete(int id)
-		//{
-		//	return View();
-		//}
-
-		//// POST: UsersController/Delete/5
-		//[HttpPost]
-		//[ValidateAntiForgeryToken]
-		//public ActionResult Delete(int id, IFormCollection collection)
-		//{
-		//	try
-		//	{
-		//		return RedirectToAction(nameof(Index));
-		//	}
-		//	catch
-		//	{
-		//		return View();
-		//	}
-		//}
+			Users.Remove(userToRemove);
+			return Ok("User deleted!");
+		}
 	}
 }
