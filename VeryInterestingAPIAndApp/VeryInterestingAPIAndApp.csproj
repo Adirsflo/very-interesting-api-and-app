@@ -12,18 +12,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Images\user\1.png" />
-    <None Include="wwwroot\Images\user\10.png" />
-    <None Include="wwwroot\Images\user\11.png" />
-    <None Include="wwwroot\Images\user\12.png" />
-    <None Include="wwwroot\Images\user\2.png" />
-    <None Include="wwwroot\Images\user\3.png" />
-    <None Include="wwwroot\Images\user\4.png" />
-    <None Include="wwwroot\Images\user\5.png" />
-    <None Include="wwwroot\Images\user\6.png" />
-    <None Include="wwwroot\Images\user\7.png" />
-    <None Include="wwwroot\Images\user\8.png" />
-    <None Include="wwwroot\Images\user\9.png" />
+    <None Include="wwwroot\Images\user\1\1.png" />
+    <None Include="wwwroot\Images\user\10\10.png" />
+    <None Include="wwwroot\Images\user\11\11.png" />
+    <None Include="wwwroot\Images\user\12\12.png" />
+    <None Include="wwwroot\Images\user\2\2.png" />
+    <None Include="wwwroot\Images\user\3\3.png" />
+    <None Include="wwwroot\Images\user\4\4.png" />
+    <None Include="wwwroot\Images\user\5\5.png" />
+    <None Include="wwwroot\Images\user\6\6.png" />
+    <None Include="wwwroot\Images\user\7\7.png" />
+    <None Include="wwwroot\Images\user\8\8.png" />
+    <None Include="wwwroot\Images\user\9\9.png" />
   </ItemGroup>
 
 </Project>

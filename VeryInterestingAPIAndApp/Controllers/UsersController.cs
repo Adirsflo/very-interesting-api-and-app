@@ -7,6 +7,18 @@ namespace VeryInterestingAPIAndApp.Controllers
 	[Route("v1/[controller]")]
 	public class UsersController : Controller
 	{
+		private readonly IWebHostEnvironment _environment;
+		public UsersController(IWebHostEnvironment environment)
+		{
+			_environment = environment;
+
+			// Adding image to the user
+			foreach (var user in Users)
+			{
+				user.Img = $"https://localhost:7251/Images/user/{user.Id}/{user.Id}.png";
+			}
+		}
+
 		// All users
 		public static List<User> Users { get; set; } = new()
 		{
@@ -15,7 +27,6 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 1,
 				FirstName = "Harry",
 				LastName = "Potter",
-				Img = "https://localhost:7251/Images/user/1.png",
 				Gender = "Male",
 				BirthDate = new DateTime(1980, 7, 31),
 				BloodStatus = "Half-Blood",
@@ -28,7 +39,7 @@ namespace VeryInterestingAPIAndApp.Controllers
 				Id = 2,
 				FirstName = "Hermione",
 				LastName = "Granger",
-				Img = "https://localhost:7251/Images/user/2.png",
+				Img = "https://localhost:7251/Images/user/{Id}/{Id}.png",
 				Gender = "Female",
 				BirthDate = new DateTime(1979, 9, 19),
 				BloodStatus = "Muggle-born",
@@ -242,6 +253,8 @@ namespace VeryInterestingAPIAndApp.Controllers
 			return Ok("User updated!");
 		}
 
+		// Deletes the user
+
 		[HttpDelete]
 		[Route("{id}")]
 		public ActionResult Delete(int id)
@@ -254,6 +267,39 @@ namespace VeryInterestingAPIAndApp.Controllers
 
 			Users.Remove(userToRemove);
 			return Ok("User deleted!");
+		}
+
+		// Upload image to user-profile
+		[HttpPut("UpploadImage")]
+		public async Task<IActionResult> UploadImage(IFormFile formFile, string productcode)
+		{
+
+			string filepath = GetFilepath(productcode);
+
+			if (!System.IO.Directory.Exists(filepath))
+			{
+				System.IO.Directory.CreateDirectory(filepath);
+			}
+			string imagepath = filepath + "\\" + productcode + ".png";
+
+			if (System.IO.File.Exists(imagepath))
+			{
+				System.IO.File.Delete(imagepath);
+			}
+
+			using (FileStream stream = System.IO.File.Create(imagepath))
+			{
+				await formFile.CopyToAsync(stream);
+				// 200 - Successfully created
+			}
+
+			return Ok("Image uploaded!");
+		}
+
+		[NonAction]
+		private string GetFilepath(string productcode)
+		{
+			return this._environment.WebRootPath + "\\Images\\user\\" + productcode;
 		}
 	}
 }
